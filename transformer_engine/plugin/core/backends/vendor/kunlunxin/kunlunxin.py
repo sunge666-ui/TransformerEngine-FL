@@ -360,6 +360,7 @@ class KunLunXinBackend(TEFLBackendBase):
         return self.multi_tensor_compute_scale_and_scale_inv(
             chunk_size, noop_flag, tensor_lists, max_fp8, force_pow_2_scales, epsilon
         )
+
     def multi_tensor_compute_scale_inv_e8m0(
         self,
         chunk_size: int,

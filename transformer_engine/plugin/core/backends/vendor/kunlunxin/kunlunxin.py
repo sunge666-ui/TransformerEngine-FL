@@ -356,8 +356,8 @@ class KunLunXinBackend(TEFLBackendBase):
         force_pow_2_scales: bool,
         epsilon: float,
     ) -> None:
-        tex = tex._get_tex()
-        return self.multi_tensor_compute_scale_and_scale_inv(
+        tex = self._get_tex()
+        return tex.multi_tensor_compute_scale_and_scale_inv(
             chunk_size, noop_flag, tensor_lists, max_fp8, force_pow_2_scales, epsilon
         )
 
@@ -368,7 +368,7 @@ class KunLunXinBackend(TEFLBackendBase):
         tensor_lists: List[List[torch.Tensor]],
         block_len: int,
     ) -> None:
-        tex = tex._get_tex()
+        tex = self._get_tex()
         return tex.multi_tensor_compute_scale_inv_e8m0(
             chunk_size,
             noop_flag,
